@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="application/x-javascript">
+        function createImage() 
+            {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+            }
+
+// Получаем два квадрата
+// Фукнцией clearRect - позволяют очистить прямоугольную область
+
+        function createImage() 
+            {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.strokeRect(20,20,50,50);
+            ctx.fillRect(80, 80, 50, 50);
+            ctx.clearRect(50,50,50,50);
+            }
+
+// Возможность дать заливку разными цветами
+
+        function createImage() 
+            {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.strokeStyle = "red";
+            ctx.strokeRect(20,20,50,50);
+            ctx.fillStyle = "blue";
+            ctx.fillRect(80, 80, 50, 50);
+            ctx.clearRect(50,50,50,50);
+            }
+
+// Получаем сложную фигуру - многогранник
+
+        function createImage() 
+            {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(0,100); 
+            ctx.lineTo(100,0); 
+            ctx.lineTo(200,100); 
+            ctx.lineTo(150,200); 
+            ctx.lineTo(50,200); 
+            ctx.lineTo(0,100); 
+            ctx.stroke(); 
+            }
+
+// Для рисования дуг используется метод arc
+// Получаем дугу
+
+        function createImage() 
+        {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(100, 100, 75, 1.2*Math.PI, 1.8 * Math.PI, false);
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+        }
+
+// Для построения квадртичной и кубической кривых используются функции :
+// quadraticCurveTo (Px, Py, x, y)
+// bezierCurveTo (P1x, P1y, P2x, P2y, x, y)
+// Результат увидим в браузере
+
+        function createImage() 
+        {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(10, 15);
+        ctx.bezierCurveTo(75, 55, 175, 20, 250, 15);
+        ctx.moveTo(10, 15);
+        ctx.quadraticCurveTo(100, 100, 250, 15);
+        ctx.stroke();
+        }
+
+// Работа со стилями линий
+// Свойство lineCap - задает форму начальных и конечных точек линий. Его значение может быть одной из следующих строк:
+// butt - Нальная и конечная точка как такоевые отсутствуют
+// round - Начальная и конечная точка имеют вид кружков 
+// square - Начальная и конечная точка имеют вид квадратиков
+// Пример, демонстрирующий все типы конечных точек линий
+
+        function createImage() 
+        {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath(); 
+        ctx.lineWidth = 10; 
+        ctx.lineCap = "butt"; 
+        ctx.moveTo(20, 20); 
+        ctx.lineTo(180, 20); 
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.lineCap = "round"; 
+        ctx.moveTo(20, 40); 
+        ctx.lineTo(180, 40); 
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.lineCap = "square"; 
+        ctx.moveTo(20, 60); 
+        ctx.lineTo(180, 60); 
+        ctx.stroke();
+        }
+
+// Пример стилей конечных точей линий 
+// Свойство lineJoin - задаёт форму точек соединения линий друг с другом
+// miter - точки соединения имеют вид острого или тупого угла
+// round - точки соединения, образующие острые углы, скругляются
+// bevel - острые углы, образуемые соединяющимися линиями, как бы срезаются
+
+      </script>
+        
+</head>
+<body onload="createImage();">
+       <canvas id="canvas" style="border: 2px solid black" width="200" height="200"> </canvas>
+       
+</body>
+</html>
